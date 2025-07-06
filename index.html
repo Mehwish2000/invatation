@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sinan's Birthday Invitation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: #416cc8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .invite-card {
+        width: 90%;
+        max-width: 420px;
+        background: #8ede59;
+        border: 2px solid #000000;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        padding: 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      h1 {
+        font-size: 1.8em;
+        color: #000000;
+        margin-bottom: 10px;
+      }
+
+      .details {
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: bold;
+      }
+
+      .rsvp {
+        margin-top: 20px;
+        font-style: italic;
+        color: #000;
+      }
+
+      .download-button {
+        margin-top: 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 1em;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .football {
+        position: absolute;
+        width: 40px;
+        animation: bounce 3s infinite;
+      }
+      .football1 {
+        top: 10px;
+        left: 20px;
+      }
+      .football2 {
+        top: 40px;
+        right: 20px;
+        animation-delay: 0.5s;
+      }
+      .football3 {
+        bottom: 10px;
+        left: 30px;
+        animation-delay: 1s;
+      }
+      .football4 {
+        bottom: 40px;
+        right: 30px;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @media (max-width: 500px) {
+        h1 {
+          font-size: 1.5em;
+        }
+        .details {
+          font-size: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="invite-card" id="inviteCard">
+      <img
+        src="images/Untitled design.png"
+        alt="Football"
+        class="football football1"
+      />
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/861/861512.png"
+        alt="Football"
+        class="football football2"
+      />
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/861/861512.png"
+        alt="Football"
+        class="football football3"
+      />
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/861/861512.png"
+        alt="Football"
+        class="football football4"
+      />
+
+      <h1>You're Invited!</h1>
+      <p class="details">
+        Join us to celebrate <br /><strong>Sinan's 3rd Birthday!</strong>
+      </p>
+      <p class="details">📅 <strong>Date:</strong> Saturday, July 12</p>
+      <p class="details">🕒 <strong>Time:</strong> 18:00 P.M</p>
+      <p class="details">
+        📍 <strong>Place:</strong> Happy Kids, Offenbach Home
+      </p>
+      <p class="rsvp">It will be a pleasure to have you with us! 🎉</p>
+    </div>
+
+    <button class="download-button" onclick="downloadCard()">
+      ⬇️ Download Card
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script>
+      function downloadCard() {
+        const card = document.getElementById("inviteCard");
+        html2canvas(card, {
+          backgroundColor: "#99B8FA",
+          scale: 2,
+        }).then((canvas) => {
+          const link = document.createElement("a");
+          link.download = "Sinan_Birthday_Invite.png";
+          link.href = canvas.toDataURL();
+          link.click();
+        });
+      }
+    </script>
+  </body>
+</html>
